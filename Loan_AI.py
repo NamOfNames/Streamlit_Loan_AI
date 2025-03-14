@@ -1,20 +1,16 @@
 import os
 import warnings
-
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-import pandas as pd
-import tensorflow as tf
-import keras
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.model_selection import train_test_split
+import tensorflow
+import joblib
 import streamlit as st
 import numpy as np
-import joblib
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
 
 warnings.filterwarnings("ignore")
 
 # Load trained model
-model = tf.keras.models.load_model("loan_model.h5")
+model = tensorflow.keras.models.load_model("loan_model.h5")
 scaler = joblib.load("scaler.pkl")  # Load the saved scaler
 
 # Streamlit UI

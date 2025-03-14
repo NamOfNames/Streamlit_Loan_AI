@@ -5,11 +5,8 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import pandas as pd
 import tensorflow as tf
 import keras
-from tensorflow.keras import layers
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
-from tensorflow import keras
-from tensorflow.keras import layers
 import streamlit as st
 import numpy as np
 import joblib
@@ -44,7 +41,8 @@ self_employed = 0 if self_employed == "Yes" else 1
 
 # Prepare input for model
 input_data = np.array(
-    [[dependents, graduate, self_employed, applicant_income, loan_amount, loan_term, credit_score, residential_assets_value, commercial_assets_value, luxury_assets_value, bank_asset_value]])
+    [[dependents, graduate, self_employed, applicant_income, loan_amount, loan_term, credit_score,
+      residential_assets_value, commercial_assets_value, luxury_assets_value, bank_asset_value]])
 input_data_scaled = scaler.transform(input_data)  # Scale input
 
 # Prediction
